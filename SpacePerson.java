@@ -1,12 +1,14 @@
+//imports
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+//Class Definition
 public class SpacePerson {
-
+//Main Method
     public static void main(String[] args) {
+        //Variable declaration
         Scanner scanner = new Scanner(System.in);
 
         // Get the space person alphabet
@@ -47,6 +49,7 @@ public class SpacePerson {
         System.out.println("Caesar Cipher: " + encryptedCaesarCipher);
     }
 
+    //Alphabet Mapping
     private static Map<Character, Character> createSpacePersonAlphabet() {
         Map<Character, Character> spacePersonAlphabet = new HashMap<>();
         char[] englishAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
@@ -59,6 +62,7 @@ public class SpacePerson {
         return spacePersonAlphabet;
     }
 
+    //Caesar Cipher Encryption
     private static String encrypt(String plaintext, int shift) {
         StringBuilder encryptedText = new StringBuilder();
 
@@ -77,6 +81,7 @@ public class SpacePerson {
         return encryptedText.toString();
     }
 
+    //SHA-256 HASH CALCULATIONS
     private static String calculateSHA256(String data) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hashBytes = digest.digest(data.getBytes());
@@ -89,6 +94,7 @@ public class SpacePerson {
         return hashStringBuilder.toString();
     }
 
+   // Brute Force Caesar Cipher Decryption
     private static void bruteForceDecrypt(String encryptedText) {
         for (int shift = 0; shift < 26; shift++) {
             StringBuilder decryptedText = new StringBuilder();
